@@ -1,10 +1,9 @@
-import {getTime} from "./getTime";
-
-const jsTime = function () {
-  return false
-}
-
-jsTime.getCustom = getTime
-jsTime.test = 'a'
-
-export default jsTime
+// const jsDate = function () {
+// }
+//
+// jsDate.test = () => {
+//   console.log(123)
+// }
+//
+// export default jsDate
+export {exp} from "./exp"
