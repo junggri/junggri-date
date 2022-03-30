@@ -1,13 +1,15 @@
 {
-  "name": "junggri-date",
+  "name": "junggri-d",
   "version": "0.0.1",
   "description": "npm deploy",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -w",
-    "dev": "nodemon -w '**/*.ts' --exec \"ts-node\" index.ts"
+    "prebuild": "rimraf dist",
+    "build": "yarn prebuild & rollup -c",
+    "tsc": "tsc -w",
+    "dev": "nodemon -w '**/*.ts' --exec \\\"ts-node\\\" src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -16,11 +18,19 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "commander": "^9.1.0"
+    "commander": "^9.1.0",
+    "global": "^4.4.0",
+    "rollup": "^2.70.1"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.3",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "esbuild": "^0.14.29",
     "nodemon": "^2.0.15",
+    "rollup-plugin-flat-dts": "^1.5.0",
     "ts-node": "^10.7.0",
+    "tslib": "^2.3.1",
     "typescript": "^4.6.3"
   }
 }
