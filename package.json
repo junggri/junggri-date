@@ -1,6 +1,6 @@
 {
   "name": "junggri-dayjs",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "get koreanTime, year, month, date only",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -17,10 +17,7 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "commander": "^9.1.0",
-    "rollup": "^2.70.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-node-resolve": "^13.1.3",
