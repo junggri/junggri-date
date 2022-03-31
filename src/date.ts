@@ -9,9 +9,9 @@ export type Divider = "." | "/" | "-" | undefined
 
 export function getKoreanTime(divider: Divider): string {
   const now = getKstTime();
-  const year = getKoreanYear(now);
-  const month = getKoreanMonth(now);
-  const date = getKoreanDate(now);
+  const year = getKoreanYear();
+  const month = getKoreanMonth();
+  const date = getKoreanDate();
 
   if (!divider) {
     return `${year}년 ${month}월 ${date}일`
@@ -20,17 +20,20 @@ export function getKoreanTime(divider: Divider): string {
 }
 
 
-export function getKoreanYear(dateObject: Date): number {
-  return dateObject.getFullYear();
+export function getKoreanYear(dateObject?: Date): number {
+  const now = dateObject ? dateObject : getKstTime();
+  return now.getFullYear();
 }
 
-export function getKoreanMonth(dateObject: Date): number {
-  const month = dateObject.getMonth();
+export function getKoreanMonth(dateObject?: Date): number {
+  const now = dateObject ? dateObject : getKstTime();
+  const month = now.getMonth();
   return month < 10 ? parseInt(`0${month + 1}`, 10) : month + 1;
 }
 
-export function getKoreanDay(dateObject: Date): string {
-  const dayIdx = dateObject.getDay();
+export function getKoreanDay(dateObject?: Date): string {
+  const now = dateObject ? dateObject : getKstTime();
+  const dayIdx = now.getDay();
 
   let koreanDay: string = "일"
   switch (dayIdx) {
@@ -52,16 +55,19 @@ export function getKoreanDay(dateObject: Date): string {
   return koreanDay
 }
 
-export function getKoreanDate(dateObject: Date): number {
-  const date = dateObject.getDate();
+export function getKoreanDate(dateObject?: Date): number {
+  const now = dateObject ? dateObject : getKstTime();
+  const date = now.getDate();
   return date < 10 ? parseInt(`0${date}`) : date;
 }
 
-export function dayAfter(date: Date) {
+export function addDate(date: number) {
+  if (date < 0) {
+    throw new Error("It is a non-additive value.");
+  }
+
   const now = getKstTime();
+  const calculateDate = new Date(now.setDate(now.getDate() + 1));
 
 }
 
-export function dayBefore(date: Date) {
-
-}

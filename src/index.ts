@@ -2,16 +2,16 @@ import * as date from "./date"
 import {
   Time,
   stopWatch,
-  timeWatch
+  timeWatch,
 } from "./clock"
 
 
 export interface JsDay {
   getKoreanTime: (divider?: date.Divider) => string
-  getKoreanYear: (dateObject: Date) => number
-  getKoreanMonth: (dateObject: Date) => number
-  getKoreanDate: (dateObject: Date) => number
-  getKoreanDay: (dateObject: Date) => string
+  getKoreanYear: (dateObject?: Date) => number
+  getKoreanMonth: (dateObject?: Date) => number
+  getKoreanDate: (dateObject?: Date) => number
+  getKoreanDay: (dateObject?: Date) => string
   stopWatch: (cb: () => void, time: number) => void
   timeWatch: (cb: (time: Time) => void) => {
     (): void;
@@ -19,6 +19,7 @@ export interface JsDay {
   }
 }
 
+date.addDate(20);
 const jsDay: JsDay = {
   getKoreanTime: date.getKoreanTime,
   getKoreanYear: date.getKoreanYear,
