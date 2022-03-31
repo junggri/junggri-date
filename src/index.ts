@@ -1,4 +1,7 @@
 import * as date from "./date"
+import {
+  clock
+} from "./clock"
 
 
 export interface JsDate {
