@@ -1,23 +1,33 @@
 import * as date from "./date"
 import {
-  clock
+  Time,
+  stopWatch,
+  timeWatch
 } from "./clock"
 
 
-export interface JsDate {
+export interface JsDay {
   getKoreanTime: (divider?: date.Divider) => string
   getKoreanYear: () => number
   getKoreanMonth: () => number
   getKoreanDate: () => number
   getKoreanDay: () => string
+  stopWatch: (cb: () => void, time: number) => void
+  timeWatch: (cb: (time: Time) => void) => {
+    (): void;
+    stop(): void;
+  }
 }
 
-const jsDate: JsDate = {
+const jsDay: JsDay = {
   getKoreanTime: date.getKoreanTime,
   getKoreanYear: date.getKoreanYear,
   getKoreanMonth: date.getKoreanMonth,
   getKoreanDate: date.getKoreanDate,
   getKoreanDay: date.getKoreanDay,
+  stopWatch: stopWatch,
+  timeWatch: timeWatch
 }
 
-export default jsDate
+
+export default jsDay

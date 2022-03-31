@@ -23,7 +23,6 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "noUnusedParameters": true,
     "esModuleInterop": true
   },
   "include": [
