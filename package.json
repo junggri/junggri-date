@@ -1,5 +1,5 @@
 {
-  "name": "jsDate",
+  "name": "@junggri/date",
   "version": "0.0.1",
   "description": "npm deploy",
   "main": "dist/index.js",
@@ -9,7 +9,8 @@
     "prebuild": "rimraf dist",
     "build": "yarn prebuild & rollup -c",
     "tsc": "tsc -w",
-    "dev": "nodemon -w '**/*.ts' --exec \"ts-node\" src/index.ts"
+    "dev": "nodemon -w '**/*.ts' --exec \"ts-node\" src/index.ts",
+    "types": "npx -p typescript tsc dist/index.js --declaration --allowJs --emitDeclarationOnly --outDir types"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,6 @@
   "dependencies": {
     "commander": "^9.1.0",
     "global": "^4.4.0",
-    "moment": "^2.29.1",
     "rollup": "^2.70.1"
   },
   "devDependencies": {
