@@ -1,7 +1,7 @@
 {
-  "name": "@junggri/date",
-  "version": "0.0.1",
-  "description": "npm deploy",
+  "name": "junggri-dayjs",
+  "version": "0.0.2",
+  "description": "get koreanTime, year, month, date only",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -9,18 +9,16 @@
     "prebuild": "rimraf dist",
     "build": "yarn prebuild & rollup -c",
     "tsc": "tsc -w",
-    "dev": "nodemon -w '**/*.ts' --exec \"ts-node\" src/index.ts",
-    "types": "npx -p typescript tsc dist/index.js --declaration --allowJs --emitDeclarationOnly --outDir types"
+    "dev": "nodemon -w '**/*.ts' --exec \"ts-node\" src/index.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/junggri/-junggri-date.git"
+    "url": "git://github.com/junggri/junggri-date.git"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "commander": "^9.1.0",
-    "global": "^4.4.0",
     "rollup": "^2.70.1"
   },
   "devDependencies": {
