@@ -8,9 +8,10 @@ function getKstTime(): Date {
 export type Divider = "." | "/" | "-" | undefined
 
 export function getKoreanTime(divider: Divider): string {
-  const year = getKoreanYear();
-  const month = getKoreanMonth();
-  const date = getKoreanDate();
+  const now = getKstTime();
+  const year = getKoreanYear(now);
+  const month = getKoreanMonth(now);
+  const date = getKoreanDate(now);
 
   if (!divider) {
     return `${year}년 ${month}월 ${date}일`
@@ -19,20 +20,17 @@ export function getKoreanTime(divider: Divider): string {
 }
 
 
-export function getKoreanYear(): number {
-  const now = getKstTime();
-  return now.getFullYear();
+export function getKoreanYear(dateObject: Date): number {
+  return dateObject.getFullYear();
 }
 
-export function getKoreanMonth(): number {
-  const now = getKstTime();
-  const month = now.getMonth();
+export function getKoreanMonth(dateObject: Date): number {
+  const month = dateObject.getMonth();
   return month < 10 ? parseInt(`0${month + 1}`, 10) : month + 1;
 }
 
-export function getKoreanDay(): string {
-  const now = getKstTime();
-  const dayIdx = now.getDay();
+export function getKoreanDay(dateObject: Date): string {
+  const dayIdx = dateObject.getDay();
 
   let koreanDay: string = "일"
   switch (dayIdx) {
@@ -54,10 +52,16 @@ export function getKoreanDay(): string {
   return koreanDay
 }
 
-export function getKoreanDate(): number {
-  const now = getKstTime();
-  const date = now.getDate();
+export function getKoreanDate(dateObject: Date): number {
+  const date = dateObject.getDate();
   return date < 10 ? parseInt(`0${date}`) : date;
 }
 
+export function dayAfter(date: Date) {
+  const now = getKstTime();
 
+}
+
+export function dayBefore(date: Date) {
+
+}

@@ -8,10 +8,10 @@ import {
 
 export interface JsDay {
   getKoreanTime: (divider?: date.Divider) => string
-  getKoreanYear: () => number
-  getKoreanMonth: () => number
-  getKoreanDate: () => number
-  getKoreanDay: () => string
+  getKoreanYear: (dateObject: Date) => number
+  getKoreanMonth: (dateObject: Date) => number
+  getKoreanDate: (dateObject: Date) => number
+  getKoreanDay: (dateObject: Date) => string
   stopWatch: (cb: () => void, time: number) => void
   timeWatch: (cb: (time: Time) => void) => {
     (): void;
