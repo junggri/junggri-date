@@ -8,7 +8,6 @@ function getKstTime(): Date {
 export type Divider = "." | "/" | "-" | undefined
 
 export function getKoreanTime(divider: Divider): string {
-  const now = getKstTime();
   const year = getKoreanYear();
   const month = getKoreanMonth();
   const date = getKoreanDate();
@@ -21,18 +20,18 @@ export function getKoreanTime(divider: Divider): string {
 
 
 export function getKoreanYear(dateObject?: Date): number {
-  const now = dateObject ? dateObject : getKstTime();
+  const now = getKstTime();
   return now.getFullYear();
 }
 
 export function getKoreanMonth(dateObject?: Date): number {
-  const now = dateObject ? dateObject : getKstTime();
+  const now = getKstTime();
   const month = now.getMonth();
   return month < 10 ? parseInt(`0${month + 1}`, 10) : month + 1;
 }
 
 export function getKoreanDay(dateObject?: Date): string {
-  const now = dateObject ? dateObject : getKstTime();
+  const now = getKstTime();
   const dayIdx = now.getDay();
 
   let koreanDay: string = "일"
@@ -56,7 +55,7 @@ export function getKoreanDay(dateObject?: Date): string {
 }
 
 export function getKoreanDate(dateObject?: Date): number {
-  const now = dateObject ? dateObject : getKstTime();
+  const now = getKstTime();
   const date = now.getDate();
   return date < 10 ? parseInt(`0${date}`) : date;
 }

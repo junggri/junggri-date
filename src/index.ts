@@ -19,7 +19,6 @@ export interface JsDay {
   }
 }
 
-date.addDate(20);
 const jsDay: JsDay = {
   getKoreanTime: date.getKoreanTime,
   getKoreanYear: date.getKoreanYear,
@@ -29,6 +28,5 @@ const jsDay: JsDay = {
   stopWatch: stopWatch,
   timeWatch: timeWatch
 }
-
 
 export default jsDay
