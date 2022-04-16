@@ -5,10 +5,10 @@ export interface Time {
 }
 
 
-export function stopWatch(cb: () => void, time: number) {
+export function stopWatch(cb: () => void, second: number) {
   const timer = setInterval(() => {
     cb();
-    if (time === 0) clearInterval(timer)
+    if (second === 0) clearInterval(timer)
   }, 1000)
 }
 
@@ -33,5 +33,6 @@ export function timeWatch(cb: (time: Time) => void) {
 
   return timerWrapper;
 }
+
 
 

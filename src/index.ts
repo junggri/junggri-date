@@ -4,6 +4,7 @@ import {
   stopWatch,
   timeWatch,
 } from "./clock"
+import {addDate, addMonth, addYear, minusDate, minusMonth, minusYear} from "./date";
 
 
 export interface JsDay {
@@ -12,11 +13,17 @@ export interface JsDay {
   getKoreanMonth: (dateObject?: Date) => number
   getKoreanDate: (dateObject?: Date) => number
   getKoreanDay: (dateObject?: Date) => string
-  stopWatch: (cb: () => void, time: number) => void
+  stopWatch: (cb: () => void, second: number) => void
   timeWatch: (cb: (time: Time) => void) => {
     (): void;
     stop(): void;
   }
+  addDate: (date: number) => void
+  minusDate: (date: number) => void
+  addMonth: (month: number) => void
+  minusMonth: (month: number) => void
+  addYear: (year: number) => void
+  minusYear: (year: number) => void
 }
 
 const jsDay: JsDay = {
@@ -26,7 +33,15 @@ const jsDay: JsDay = {
   getKoreanDate: date.getKoreanDate,
   getKoreanDay: date.getKoreanDay,
   stopWatch: stopWatch,
-  timeWatch: timeWatch
+  timeWatch: timeWatch,
+  addDate: addDate,
+  minusDate: minusDate,
+  addMonth: addMonth,
+  minusMonth: minusMonth,
+  addYear: addYear,
+  minusYear: minusYear
 }
 
 export default jsDay
+
+

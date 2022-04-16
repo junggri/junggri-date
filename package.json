@@ -1,6 +1,6 @@
 {
   "name": "junggri-dayjs",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "get koreanTime, year, month, date only",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
